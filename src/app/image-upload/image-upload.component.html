@@ -1,0 +1,17 @@
+<div class="container">
+    <div>
+        <form [formGroup]="form">
+            <input type="file" formControlName="Image" (change)="change($event)"  class="form-control" style="height: 50px;">   
+            <img [src]="imgURL" height="200" *ngIf="imgURL">             
+        </form>
+    </div>
+
+    <hr>
+        <h1 class="text-center">Images</h1>
+        <hr>
+    <div *ngIf="Images" class="container row">    
+        <div *ngFor="let i of Images" class="m-2">
+            <img src="{{i}}" style="width: 50%;">        
+        </div>
+    </div>
+</div>

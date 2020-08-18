@@ -3,16 +3,25 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ImageUploadComponent } from './image-upload/image-upload.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule} from '@angular/common/http';
+import { ImagesService } from './image-upload/images.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ImageUploadComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [ImagesService]
+  
 })
 export class AppModule { }
