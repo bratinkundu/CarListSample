@@ -56,7 +56,7 @@ export class ImageUploadComponent implements OnInit {
     return kbytes/1024;
   }
   submit(data){    
-    this.service.sendImage(data).subscribe(data=>{      
+    this.service.sendImagetoLive(data).subscribe(data=>{      
      alert("Triggerd");
      this.ngOnInit();
      this.imgURL="";
