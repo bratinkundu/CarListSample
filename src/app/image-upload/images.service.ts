@@ -7,7 +7,7 @@ import { HttpClient} from '@angular/common/http';
 export class ImagesService {
   constructor(private http:HttpClient) { }
   sendImage(data){
-    return this.http.post('https://localhost:44341/api/Insertimage',data);
+    return this.http.post('https://sampleimageapi.azurewebsites.net/api/Insertimage',data);
   }
   getimagesI(){
     return this.http.get("https://localhost:44341/api/GetImageOfIImages");

@@ -12,6 +12,8 @@ export class ImageUploadComponent implements OnInit {
   form:FormGroup;
   message: string;
   imagePath: any;
+  startTime;
+  endTime;
   imgURL: string | ArrayBuffer;
   constructor(private formBuilder : FormBuilder,private service:ImagesService,private sanitizer: DomSanitizer) { }
   Images=[];
@@ -21,13 +23,20 @@ export class ImageUploadComponent implements OnInit {
     this.form = this.formBuilder.group({
       Image:[]     
     }); 
-    this.service.getimagesV().subscribe(data=>{
+    this.startTime = Date.now();
+    this.service.getimagesI().subscribe(data=>{
+      console.log(data)
       this.Images2=data;
       console.log(this.Images2);
       for(var i=0;i<this.Images2.length;i++){        
         this.Images[i] = 'data:image/jpeg;base64,'+this.Images2[i].Image;
-      }      
+      }     
+      this.endTime = Date.now(); 
+      console.log(this.endTime - this.startTime)
     });
+    
+
+    
   }
   submit(data){    
     this.service.sendImage(data).subscribe(data=>{      
