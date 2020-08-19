@@ -9,9 +9,12 @@
     <hr>
         <h1 class="text-center">Images</h1>
         <hr>
+        <p *ngIf="ExecutionTime">Total Time : {{ExecutionTime}} sec</p>
     <div *ngIf="Images" class="container row">    
-        <div *ngFor="let i of Images" class="m-2">
-            <img src="{{i}}" style="width: 50%;">        
+        <div *ngFor="let i of Images;let j = index" class="m-2"style="position: relative;">
+            <img src="{{i}}" style="width: 50%;">
+            <span  *ngIf="ImageSize[j]>1" class="bg-success text-white" style="position: absolute;left:0px;">&nbsp; &nbsp;Size : {{ImageSize[j] | number: '1.2-2'}} MB&nbsp; &nbsp; </span> 
+            <span  *ngIf="ImageSize[j]<1" class="bg-success text-white" style="position: absolute;left:0px;">&nbsp; &nbsp;Size : {{ImageSize[j] *1024 | number: '1.2-2'}} KB&nbsp; &nbsp; </span>       
         </div>
     </div>
 </div>
