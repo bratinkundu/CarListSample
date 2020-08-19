@@ -6,7 +6,7 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ImagesService {
   constructor(private http:HttpClient) { }
-  hostedUrl ="https://sampleimageapi.azurewebsites.net/";
+  hostedUrl ="https://10.0.2.150:8183/";
   localurl ="https://localhost:44341/"
   sendImage(data){
     return this.http.post('https://localhost:44341/api/Insertimage',data);
