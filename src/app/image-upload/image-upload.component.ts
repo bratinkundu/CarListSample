@@ -15,6 +15,7 @@ export class ImageUploadComponent implements OnInit {
   startTime;
   endTime;
   ExecutionTime:any;
+  executionTime;
   imgURL: string | ArrayBuffer;
   constructor(private formBuilder : FormBuilder,private service:ImagesService,private sanitizer: DomSanitizer) { }
   Images=[];
@@ -25,8 +26,8 @@ export class ImageUploadComponent implements OnInit {
     this.form = this.formBuilder.group({
       Image:[]     
     }); 
-    this.startTime = Date.now();
-    this.service.getimagesI().subscribe(data=>{
+    this.startTime = Date.now(); 
+    this.service.getIImagesLive().subscribe(data=>{
       //console.log(data)
       this.Images2=data;
       //console.log(this.Images2);
